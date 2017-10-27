@@ -1,6 +1,6 @@
 app.controller('TodosLosLibrosCtrl', function($resource, $timeout, cfpLoadingBar, Libros) {
     'use strict';
-
+    
     var self = this;
 
     self.libros = [];
@@ -10,9 +10,12 @@ app.controller('TodosLosLibrosCtrl', function($resource, $timeout, cfpLoadingBar
     }
 
     this.actualizarLista = function() {
-        Libros.query(function(data) {
+        Libros.query()
+        .then(function(data) {
+            console.log(data)
             self.libros = data;
-        }, errorHandler);
+        })
+        .catch(errorHandler);
     };
     
     this.actualizarLista();

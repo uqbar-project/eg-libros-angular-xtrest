@@ -123,7 +123,7 @@
 	
 </div>
 
-<!-- MODEL WINDOW PARA EDITAR UN LIBRO -->
+<!-- MODEL WINDOW PARA VER UN LIBRO -->
 <div id="verLibroModal" class="modal fade" role="dialog">
 	<div class="modal-dialog">
         <div class="modal-content">
@@ -134,10 +134,14 @@
 			<div class="modal-body">
 				<p>{{LibroCtrl.libroSeleccionado.autor}}</p>
 			</div>
+			<div ng-show="LibroCtrl.libroSeleccionado.sosViejo()" class="alert alert-info" role="alert">
+				¡Este libro tiene más de 100 años!
+			</div>
 		</div>
 	</div>
 </div>
 
+<!-- MODEL WINDOW PARA EDITAR UN LIBRO -->
 <div id="editarLibroModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -174,6 +178,7 @@
 </div>
 
 <!-- nuestro jscript -->
+<script src="js/models.js"></script>
 <script src="js/app.js"></script>
 <script src="js/services.js"></script>
 <script src="js/controllers.js"></script>
